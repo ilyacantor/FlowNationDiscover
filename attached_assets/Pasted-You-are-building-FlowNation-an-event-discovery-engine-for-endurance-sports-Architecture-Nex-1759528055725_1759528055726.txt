@@ -1,0 +1,60 @@
+You are building FlowNation, an event discovery engine for endurance sports.
+
+Architecture:
+- Next.js (Pages Router)
+- Tailwind CSS (already configured)
+- Components under /components
+- API routes under /pages/api
+
+Design / Look & Feel:
+- Clean, professional style similar to BikeReg.com
+- Palette: navy blue (#003366), white, light gray (#f9fafb), accent blue (#2563eb)
+- Typography: Sans-serif, semi-bold headers, medium body
+- Rounded corners (rounded-lg), subtle shadows (shadow-md), hover elevation
+- Responsive: 
+  • Desktop = 4-column grid (events area + sidebar) 
+  • Mobile = 1-column stacked
+
+Core UI Components:
+1. NavBar
+   - White background, subtle shadow
+   - Links: Home, Events, Match, Calendar, Other
+   - Hover state = text turns navy
+   - Active link = bold + underline
+
+2. Filter Bar (Events Page)
+   - White rounded container with shadow
+   - Inside: pill-style input boxes (Event Date, Event Location, Event Type, Distance, Event Name)
+   - Reset (gray text) + Apply (navy button, white text) aligned right
+   - Responsive: horizontal row on desktop, stacked on mobile
+
+3. Event Results
+   - Header row: “XXX results” (left) + “My location: ZIP” (right)
+   - Grouped by month with a navy header bar
+   - Each event row:
+     • Left side: title (blue link, bold), location (gray), tags (pills)
+     • Right side: sponsor/team logo
+   - Hover = row background turns light gray
+
+4. Featured Events
+   - Section header: “Featured Events”
+   - Horizontal scrollable carousel (cards ~280px wide)
+   - Each card:
+     • Image (top)
+     • Event type badge (top-left overlay)
+     • Title, date, location below
+   - Scrollbar hidden, swipeable on mobile
+
+5. Sidebar (optional, future)
+   - Promotional card (e.g. “Outside+ Free Trial”) with bright background
+
+Data Schema:
+{
+  id, title, type, date, location, distance,
+  tags: [], source, url, image, logo
+}
+
+Behavior:
+- API `/api/events` returns mock events
+- Events page fetches from API and renders UI
+- Test pages (/test/match, /test/calendar, /test/other) are placeholders
